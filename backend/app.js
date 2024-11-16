@@ -83,6 +83,9 @@ app.delete('/goals/:id', async (req, res) => {
   }
 });
 
+console.log("test compose");
+
+
 mongoose.connect(
   'mongodb://mongodb:27017/course-goals',
   {

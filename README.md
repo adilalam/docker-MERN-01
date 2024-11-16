@@ -39,3 +39,7 @@ docker run --rm -d --name mongodb -v data:/data/db --network goal-net mongo
 
 # mongodb sequirity
 docker run --rm -d --name mongodb -v data:/data/db --network goal-net -e MONGO_INITDB_ROOT_USERNAME=adil -e MONGO_INITDB_ROOT_PASSWORD=adil mongo
+
+# docker compose
+docker-compose up -d
+docker-compose down -v 
