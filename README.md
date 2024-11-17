@@ -43,3 +43,27 @@ docker run --rm -d --name mongodb -v data:/data/db --network goal-net -e MONGO_I
 # docker compose
 docker-compose up -d
 docker-compose down -v 
+
+
+----------------------- for aws deployment --------------
+
+
+sudo yum update -y
+
+sudo yum -y install docker
+ 
+sudo service docker start
+ 
+sudo usermod -a -G docker ec2-user
+
+# To build a Linux/AMD/Intel image on your M1 mac workstation, run the following.
+
+docker buildx build --platform linux/amd64 -t node-dep-example .
+
+docker tag node-dep-example adilalam/node-example-01
+
+docker push adilalam/node-example-01
+
+sudo docker run -d --rm -p 80:80 --name node-app adilalam/node-example-01
+
+sudo docker pull adilalam/node-example-01
